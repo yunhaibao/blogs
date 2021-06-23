@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <style>
+        .pha-cell-drug {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 500px;
+            height:200px;
+            border-radius: 4px;
+            float: left;
+            cursor: pointer;
+            /* overflow: auto; */
+        }
+
+        .pha-cell-drug:hover {
+            background-color: #d2eafe;
+        }
+
+        .drug-img {
+            text-align: center;
+            width: 200px;
+            float: left;
+            height: 100%;
+            border-right: 1px dashed #ccc;
+        }
+
+        .drug-img img {
+            max-width: 180px;
+            max-height: 200px;
+        }
+
+        .drug-info {
+            float: left;
+            padding-left: 10px;
+            width: calc(100% - 220px);
+        }
+
+        .drug-title {}
+
+        .drug-title-main {
+            float: left;
+            white-space: nowrap;
+            width: calc(100% - 40px);
+            overflow: hidden;
+        }
+
+        .drug-title-info {}
+
+        .drug-add-info {
+            opacity: 0.6;
+            font-style: italic;
+            font-size: 12px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .drug-use-info {
+            width: 100%;
+            border-top: 1px dashed #ccc;
+            float: left;
+            line-height: 28px;
+        }
+
+        .drug-qty {
+            font-size: 20px;
+            position: relative;
+            left:10px;
+            top:5px;
+        }
+    </style>
+    <script id="tempOrders" type="text/x-handlebars-template">
+        {{#each rows}}
+        <div class="pha-cell-drug">
+            <div class="drug-img">
+                <img src={{medImg}} alt=""  style="padding-top: 5px;">
+            </div>
+
+            <div class="drug-info">
+                <div class="drug-title">
+                    <div class="drug-title-main">
+                        <div class="drug-title-info">{{inciDesc}}</div>
+                        <div class="drug-add-info">{{inciAddInfo}}</div>
+                    </div>
+                    <div class="drug-qty">
+                        {{qty}}
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+                <div class="drug-use-info">
+                    <div>用法: {{instrucDesc}}</div>
+                    <div>频次: {{freqDesc}}</div>
+                    <div>剂量: {{dosage}}</div>
+                    <div>医嘱备注: {{docRemark}}</div>
+                </div>
+    
+            </div>
+
+            <div style="clear: both;"></div>
+        </div>
+        {{/each}}
+    </script>
+</head>
+
+<body>
+    <div class="pha-orders-preview">
+
+    </div>
+</body>
+<script>
+    var data = {
+        rows: [{
+            inciDesc: '复合维生素片(爱乐等等等等等等等等等等等等多维)[CO*30]',
+            inciAddInfo: 'CO*30 西安高科陕西金方药业公司',
+            qty: '1瓶',
+            instrucDesc: '口服',
+            freqDesc: 'Tid(餐前) 早|中|晚',
+            dosage: '(2-2-1)片',
+            docRemark: '注意饭前40分钟',
+            medImg: 'https://gitee.com/yunhaibao/picgo/raw/master/img/image-20210621121204313.png'
+        }, {
+            inciDesc: '阿莫西林胶囊',
+            inciAddInfo: '0.25g*20粒 石药集团',
+            instrucDesc: '口服',
+            qty: '2盒',
+            freqDesc: 'Tid(餐前) 早|中|晚',
+            dosage: '2片',
+            docRemark: '注意皮试阳性',
+            medImg: 'https://gitee.com/yunhaibao/picgo/raw/master/img/image-20210621124746955.png'
+        }, {
+            inciDesc: '复合维生素片(爱乐维)[CO*30]',
+            inciAddInfo: 'CO*30 西安高科陕西金方药业公司',
+            instrucDesc: '口服',
+            qty: '1盒',
+            freqDesc: 'Tid(餐前) 早|中|晚',
+            dosage: '(2-2-1)片',
+            docRemark: '注意饭前40分钟',
+            medImg: 'https://gitee.com/yunhaibao/picgo/raw/master/img/image-20210621124856392.png'
+        }]
+    };
+    var template = $('#tempOrders').html();
+    var handler = Handlebars.compile(template);
+    $('.pha-orders-preview').html(handler(data));
+</script>
+
+</html>

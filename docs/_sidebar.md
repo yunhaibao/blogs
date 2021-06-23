@@ -7,3 +7,4 @@
 
 - 工具栏
   - [UI](UI.md)
+  - [药](meds.html)
