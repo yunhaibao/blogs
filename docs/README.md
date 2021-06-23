@@ -1,1 +1,2 @@
-![image-20210623175705001](https://gitee.com/yunhaibao/picgo/raw/master/img/image-20210623175705001.png)
+
+![image-20210623175705001](https://www.lernajs.cn/images/lerna-hero.svg)
