@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Export generator="Cache" version="25" zv="Cache for Windows (x86-64) 2016.2 (Build 736U)" ts="2021-06-24 15:15:07">
+<Class name="M.FiveBitString">
+<Super>%RegisteredObject</Super>
+<TimeChanged>65918,72056.899118</TimeChanged>
+<TimeCreated>65918,71325.646567</TimeCreated>
+
+<Method name="BitString">
+<Description>
+d ##class(M.FiveBitString).BitString()</Description>
+<ClassMethod>1</ClassMethod>
+<Implementation><![CDATA[
+	s number = $random(65535)
+	w "随机数为：" _ number,!
+	
+	s bStr = $factor(number)
+	zw bStr
+	
+	s count = $bitcount(bStr)
+	w "位串长度：" _ count,!
+	
+	w "位串显示："
+	for i = 1 : 1 : count {
+		w $bit(bStr, i)
+	}
+	w !
+	
+	s decimal = 0
+	for i = count : -1 : 1 {
+		s bit = $bit(bStr, i)
+		if (bit) {
+			s decimal = decimal + $zpower(2, i - 1)
+		}
+	} 
+	w "还原数字为：" _ decimal,!
+]]></Implementation>
+</Method>
+
+<Method name="CharBitString">
+<Description>
+d ##class(M.FiveBitString).CharBitString("姚")</Description>
+<ClassMethod>1</ClassMethod>
+<FormalSpec>str</FormalSpec>
+<Implementation><![CDATA[
+	s number = $ascii(str)
+	w "字符串ascii：" _ number,!
+	
+	s bStr = $factor(number)
+	zw bStr
+	
+	s count = $bitcount(bStr)
+	w "位串长度：" _ count,!
+	
+	w "位串显示："
+	for i = 1 : 1 : count {
+		w $bit(bStr, i)
+	}
+	w !
+	
+	s decimal = 0
+	for i = count : -1 : 1 {
+		s bit = $bit(bStr, i)
+		if i = 2  s bit = 'bit
+		if (bit) {
+			s decimal = decimal + $zpower(2, i - 1)
+		}
+	} 
+	w "还原数字为：" _ decimal,!
+	
+	s target = $char(decimal)
+	w "目标字符串：" _ target,!
+]]></Implementation>
+</Method>
+</Class>
+</Export>
