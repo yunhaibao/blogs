@@ -20,5 +20,5 @@
 - [011&nbsp;-&nbsp;逻辑比较运算符&nbsp](第11讲_逻辑比较运算符.md)
 - [012&nbsp;-&nbsp;算数运算符&nbsp;](第12讲_算术运算符.md)
 - [013&nbsp;-&nbsp;关系运算符&nbsp;](第13讲_关系运算符.md)
-- [014&nbsp;-&nbsp;第14讲_模式匹配&nbsp;&nbsp;](第14讲_模式匹配.md)
-- [015&nbsp;-&nbsp;第15讲_间接寻址&nbsp;&nbsp;](第15讲_间接寻址.md)
+- [014&nbsp;-&nbsp;模式匹配&nbsp;&nbsp;](第14讲_模式匹配.md)
+- [015&nbsp;-&nbsp;间接寻址&nbsp;&nbsp;](第15讲_间接寻址.md)
